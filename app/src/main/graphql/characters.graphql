@@ -1,0 +1,15 @@
+query GetCharactersQuery($page: Int!) {
+        characters (page : $page ) {
+            info {
+                count
+            }
+            results {
+                id
+                name
+                image
+                gender
+                species
+            }
+        }
+
+}

@@ -1,7 +1,18 @@
+import kotlin.text.set
+
+// variables
+val icons_version = "1.1.1"
+val nav_version = "2.8.3"
+val apollo_version = "4.0.1"
+val viewmodal_version = "2.6.1"
+
+
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.apollographql.apollo").version("4.0.1")
 }
 
 android {
@@ -39,8 +50,6 @@ android {
     }
 }
 
-// navigation
-val nav_version = "2.8.3"
 
 dependencies {
 
@@ -60,6 +69,14 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation("br.com.devsrsouza.compose.icons:feather:1.1.1") // Icons
+    implementation("br.com.devsrsouza.compose.icons:feather:$icons_version") // Icons
     implementation ("androidx.navigation:navigation-compose:$nav_version") // Compose navigation
+    implementation("com.apollographql.apollo:apollo-runtime:$apollo_version") // GraphQL client
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$viewmodal_version") // Stateflow management
+}
+
+apollo {
+    service("service") {
+        packageName.set("com.github.tallestlegacy.rickandmortykt")
+    }
 }
