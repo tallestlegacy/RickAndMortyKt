@@ -39,6 +39,9 @@ android {
     }
 }
 
+// navigation
+val nav_version = "2.8.3"
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -56,4 +59,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation("br.com.devsrsouza.compose.icons:feather:1.1.1") // Icons
+    implementation ("androidx.navigation:navigation-compose:$nav_version") // Compose navigation
 }
