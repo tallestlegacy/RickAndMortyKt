@@ -69,7 +69,13 @@ fun MainScreen(
                         icon = { Icon(tab.icon, tab.route) },
                         selected = tab.route == currentRoute,
                         onClick = {
-                            navController.navigate(tab.route)
+                            navController.navigate(tab.route) {
+                                launchSingleTop = true
+                                restoreState = true
+                                popUpTo(navController.graph.startDestinationId) {
+                                    saveState = true
+                                }
+                            }
                         }
                     )
                 }

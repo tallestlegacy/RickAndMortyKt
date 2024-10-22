@@ -1,0 +1,34 @@
+query GetEpisodes ($page : Int!) {
+    episodes (page: $page) {
+        info {
+            count
+            next
+            prev
+            pages
+        }
+
+        results {
+            id
+            name
+            episode
+            air_date
+        }
+    }
+}
+
+
+query GetEpisode ($id : ID!) {
+    episode(id: $id) {
+        id
+        name
+        episode
+        air_date
+        characters {
+            id
+            name
+            image
+            gender
+            species
+        }
+    }
+}

@@ -1,10 +1,8 @@
-import kotlin.text.set
-
 // variables
 val icons_version = "1.1.1"
 val nav_version = "2.8.3"
 val apollo_version = "4.0.1"
-val viewmodal_version = "2.6.1"
+val viewmodel_version = "2.6.1"
 
 
 
@@ -70,9 +68,11 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation("br.com.devsrsouza.compose.icons:feather:$icons_version") // Icons
-    implementation ("androidx.navigation:navigation-compose:$nav_version") // Compose navigation
+    implementation("androidx.navigation:navigation-compose:$nav_version") // Compose navigation
     implementation("com.apollographql.apollo:apollo-runtime:$apollo_version") // GraphQL client
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$viewmodal_version") // Stateflow management
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$viewmodel_version") // Stateflow management
+    implementation("io.coil-kt.coil3:coil-compose:3.0.0-rc01") // image loader
+    implementation("io.coil-kt.coil3:coil-network-okhttp:3.0.0-rc01") // network image loader
 }
 
 apollo {

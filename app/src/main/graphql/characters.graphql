@@ -1,15 +1,51 @@
 query GetCharactersQuery($page: Int!) {
-        characters (page : $page ) {
-            info {
-                count
-            }
-            results {
-                id
-                name
-                image
-                gender
-                species
-            }
+    characters (page : $page ) {
+        info {
+            count
+            next
+            prev
+            pages
         }
 
+        results {
+            id
+            name
+            image
+            gender
+            species
+        }
+    }
+
+}
+
+query GetCharacter($id : ID!) {
+    character(id: $id) {
+        id
+        species
+        gender
+        image
+        created
+        status
+
+        location {
+            id
+            name
+            dimension
+        }
+
+        origin {
+            id
+            name
+            type
+            dimension
+        }
+
+        episode {
+            id
+            name
+            episode
+            created
+            air_date
+        }
+    }
 }
